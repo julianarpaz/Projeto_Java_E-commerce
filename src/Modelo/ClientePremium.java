@@ -5,8 +5,8 @@ public class ClientePremium extends Cliente {
     private String nome;
     //private int pontosDeFidelidade;
 
-    public ClientePremium(String email, String plataforma, Endereço endereço, String nome, String CPF) {
-        super(email, plataforma, endereço);
+    public ClientePremium(String email, String plataforma, Endereco endereco, String nome, String CPF) {
+        super(email, plataforma, endereco);
         this.nome = nome;
     }
 
