@@ -3,12 +3,12 @@ package Modelo;
 public class Cliente {
 
     private String email;
-    private String plataforma;
+    private String dominio;
     private Endereco endereco;
 
     public Cliente(String email, String plataforma, Endereco endereco) {
         this.email = email;
-        this.plataforma = plataforma;
+        this.dominio = plataforma;
         this.endereco = endereco;
     }
 
@@ -16,8 +16,8 @@ public class Cliente {
         return email;
     }
 
-    public String getPlataforma() {
-        return plataforma;
+    public String getDominio() {
+        return dominio;
     }
 
     public Endereco getEndereco() {

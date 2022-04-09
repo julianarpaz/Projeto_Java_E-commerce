@@ -18,16 +18,12 @@ public class App {
         carrinho.removerItem(produto1);
         carrinho.adicionarItem(produto3);
 
-
-        carrinho.precoCompra();
-
         carrinho.visualizacaoDaCompra();
 
-        //carrinho.finalizacaoDaCompra();
-
+        Pagamento credito = Pagamento.credito;
+        carrinho.escolhaPagamento(credito);
 
 
     }
-
 
 }

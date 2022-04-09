@@ -24,20 +24,23 @@ public class Carrinho {
         this.produtos.remove(produto);
     }
 
-    public double precoCompra() {
+    private double precoCompra() {
         for (Produto produtos : produtos) {
             precoTotal += produtos.getPreco();
-            System.out.println("Rodou uma vez.");
         }
-        System.out.println(produtos.size());
         return precoTotal;
     }
 
     public void visualizacaoDaCompra() {
         for (Produto produtos : produtos) {
-            System.out.println(produtos.getNome()+"\t"+NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
+            System.out.println(produtos.getNome() + "\t" + NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
         }
         System.out.println("Total a pagar: " + NumberFormat.getCurrencyInstance().format(precoTotal));
+    }
+
+    public int escolhaPagamento(Pagamento pagamento) {
+        System.out.println("Método de pagamento escolhido foi " + pagamento.name());
+        return pagamento.ordinal();
     }
 
     //booleano para checagem se cliente tem direito a benefícios
