@@ -4,12 +4,12 @@ public class Cliente {
 
     private String email;
     private String plataforma;
-    private Endereço endereço;
+    private Endereco endereco;
 
-    public Cliente(String email, String plataforma, Endereço endereço) {
+    public Cliente(String email, String plataforma, Endereco endereco) {
         this.email = email;
         this.plataforma = plataforma;
-        this.endereço = endereço;
+        this.endereco = endereco;
     }
 
     public String getEmail() {
@@ -20,8 +20,8 @@ public class Cliente {
         return plataforma;
     }
 
-    public Endereço getEndereço() {
-        return endereço;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
     //método de validação do email (pensei em so poder algumas plataformas: gmail, hotmail, yahoo, uol)   Laise e Isabelly

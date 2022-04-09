@@ -1,19 +1,19 @@
 package Modelo;
 
-public class Endereço {
+public class Endereco {
 
     private String rua;
     private int numero;
-    private int CEP;
+    private int cep;
     private String cidade;
 
-    public Endereço(String rua, int numero, int CEP, String cidade) {
+    public Endereco(String rua, int numero, int cep, String cidade) {
         this.rua = rua;
         this.numero = numero;
-        this.CEP = CEP;
+        this.cep = cep;
         this.cidade = cidade;
     }
 
-    public Endereço() {
+    public Endereco() {
     }
 }
