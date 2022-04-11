@@ -3,11 +3,11 @@ package Modelo;
 public class Produto {
 
     private String nome;
-    private String codigo;
+    private int codigo;
     private double preco;
     private double frete;
 
-    public Produto(String nome, String codigo, double preco) {
+    public Produto(String nome, int codigo, double preco) {
         this.nome = nome;
         this.codigo = codigo;
         this.preco = preco;
@@ -17,7 +17,7 @@ public class Produto {
         return nome;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 

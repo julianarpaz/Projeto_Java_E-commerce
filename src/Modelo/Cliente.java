@@ -12,6 +12,9 @@ public class Cliente {
         this.endereço = endereço;
     }
 
+    public Cliente() {
+    }
+
     public String getEmail() {
         return email;
     }
