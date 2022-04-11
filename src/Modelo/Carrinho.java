@@ -1,5 +1,6 @@
 package Modelo;
 
+import javax.swing.*;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,12 +9,15 @@ public class Carrinho {
 
     private List<Produto> produtos = new ArrayList<>();
     private Cliente cliente;
-    private int metodoDePagamento;
+    private Pagamento pagamento;
     private double precoTotal = 0;
 
-    public Carrinho(Cliente cliente, int metodoDePagamento) {
+    public Carrinho(Cliente cliente) {
         this.cliente = cliente;
-        this.metodoDePagamento = metodoDePagamento;
+    }
+
+    public Pagamento getPagamento() {
+        return pagamento;
     }
 
     public void adicionarItem(Produto produto) {
@@ -32,18 +36,36 @@ public class Carrinho {
     }
 
     public void visualizacaoDaCompra() {
+        precoCompra();
         for (Produto produtos : produtos) {
             System.out.println(produtos.getNome() + "\t" + NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
         }
         System.out.println("Total a pagar: " + NumberFormat.getCurrencyInstance().format(precoTotal));
     }
 
-    public int escolhaPagamento(Pagamento pagamento) {
+    private int escolhaPagamento(Pagamento pagamento) {
+        getPagamento();
         System.out.println("Método de pagamento escolhido foi " + pagamento.name());
         return pagamento.ordinal();
     }
 
-    //booleano para checagem se cliente tem direito a benefícios
+    public void finalizacaoCompra(Pagamento pagamento) {
+        escolhaPagamento(pagamento);
+        JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
+    }
+
+    private int pontuacao() {
+        precoCompra();
+        int ponto = ((int) precoTotal / 50) * 10;
+        System.out.println("Voce possui " + ponto + " pontos");
+        return ponto;
+    }
+
+    /*public boolean checagemBeneficios() {
+        if (cliente.){
+
+        }
+    }*/
 
 
 }

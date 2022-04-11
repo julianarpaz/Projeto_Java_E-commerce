@@ -4,25 +4,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        Produto produto1 = new Produto("Calça jeans","001",80.0);
-        Produto produto2 = new Produto("Camisa Raglan","002", 55.0);
-        Produto produto3 = new Produto("Camiseta Regata Branca", "003", 35.0);
-
-        Endereco endereco = new Endereco();
-        Cliente cliente = new Cliente ("julianarpaz","@google.com", endereco);
-
-        Carrinho carrinho = new Carrinho(cliente, 1);
-
-        carrinho.adicionarItem(produto1);
-        carrinho.adicionarItem(produto2);
-        carrinho.removerItem(produto1);
-        carrinho.adicionarItem(produto3);
-
+        Estoque estoque = new Estoque();
+        Cliente cliente = new Cliente ("julianarpaz","@gmail.com");
+        cliente.checarEmail();
+        Carrinho carrinho = new Carrinho(cliente);
+        carrinho.adicionarItem(estoque.getCalça_jeans());
+        carrinho.adicionarItem(estoque.getCamisa_raglan());
+        carrinho.adicionarItem(estoque.getCamiseta_regata_branca());
         carrinho.visualizacaoDaCompra();
-
-        Pagamento credito = Pagamento.credito;
-        carrinho.escolhaPagamento(credito);
-
+        carrinho.finalizacaoCompra(Pagamento.credito);
 
     }
 

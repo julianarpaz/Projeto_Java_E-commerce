@@ -4,5 +4,4 @@ public enum Pagamento {
 
      credito, debito, boleto;
 
-
 }

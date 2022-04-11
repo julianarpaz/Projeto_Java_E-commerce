@@ -7,7 +7,7 @@ public class Produto {
     private double preco;
     private double frete;
 
-    public Produto(String nome, String codigo, double preco) {
+    public Produto(String nome, String codigo, double preco, int quantidade) {
         this.nome = nome;
         this.codigo = codigo;
         this.preco = preco;
@@ -25,5 +25,4 @@ public class Produto {
         return preco;
     }
 
-    //condicional pra checagem se cliente recebe frete grátis  Laise + Isabelly
 }

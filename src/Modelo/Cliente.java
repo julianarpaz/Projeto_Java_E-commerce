@@ -6,10 +6,9 @@ public class Cliente {
     private String dominio;
     private Endereco endereco;
 
-    public Cliente(String email, String plataforma, Endereco endereco) {
+    public Cliente(String email, String plataforma) {
         this.email = email;
         this.dominio = plataforma;
-        this.endereco = endereco;
     }
 
     public String getEmail() {
@@ -24,8 +23,15 @@ public class Cliente {
         return endereco;
     }
 
-    //método de validação do email (pensei em so poder algumas plataformas: gmail, hotmail, yahoo, uol)   Laise e Isabelly
+    public String checarEmail() {
 
-    //REGEX
+        if (getDominio().contains("@") && getDominio().contains(".com")) {
+            System.out.println("Email valido!!!");
+        } else {
+            System.out.println("Email invalido!!!");
+        }
+        return getDominio();
+    }
+
 
 }

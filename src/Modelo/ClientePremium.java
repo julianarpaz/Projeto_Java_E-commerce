@@ -3,10 +3,9 @@ package Modelo;
 public class ClientePremium extends Cliente {
 
     private String nome;
-    //private int pontosDeFidelidade;
 
-    public ClientePremium(String email, String plataforma, Endereco endereco, String nome, String CPF) {
-        super(email, plataforma, endereco);
+    public ClientePremium(String email, String plataforma, String nome, String CPF) {
+        super(email, plataforma);
         this.nome = nome;
     }
 
@@ -15,11 +14,6 @@ public class ClientePremium extends Cliente {
     }
 
 
-    //public int getPontosDeFidelidade() {
-     //   return pontosDeFidelidade;
-   // }
-
-    //metodo que a cada 10 reais em compras ganha 1 ponto.
 
 
 }
