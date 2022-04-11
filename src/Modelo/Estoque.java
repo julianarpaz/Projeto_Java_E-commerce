@@ -17,4 +17,6 @@ public class Estoque {
     public Produto getCamiseta_regata_branca() {
         return camiseta_regata_branca;
     }
+
+
 }
