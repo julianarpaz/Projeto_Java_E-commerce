@@ -7,11 +7,12 @@ public class Produto {
     private double preco;
     private double frete;
 
-    public Produto(String nome, String codigo, double preco, int quantidade) {
+    public Produto(String nome, String codigo, double preco) {
         this.nome = nome;
         this.codigo = codigo;
         this.preco = preco;
     }
+    
 
     public String getNome() {
         return nome;
@@ -24,5 +25,9 @@ public class Produto {
     public double getPreco() {
         return preco;
     }
+    public String toString() {
+		return " "+codigo + "\t" + nome + "\t\t" + preco;
+	}
+    
 
 }
