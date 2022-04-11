@@ -11,6 +11,7 @@ public class App {
         carrinho.adicionarItem(estoque.getCalça_jeans());
         carrinho.adicionarItem(estoque.getCamisa_raglan());
         carrinho.adicionarItem(estoque.getCamiseta_regata_branca());
+        carrinho.removerItem(estoque.calça_jeans);
         carrinho.visualizacaoDaCompra();
         carrinho.finalizacaoCompra(Pagamento.credito);
 
