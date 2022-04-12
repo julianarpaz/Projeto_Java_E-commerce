@@ -3,12 +3,10 @@ package Modelo;
 public class Cliente {
 
     private String email;
-    private String dominio;
     private Endereco endereco;
 
-    public Cliente(String email, String plataforma) {
+    public Cliente(String email, String dominio) {
         this.email = email;
-        this.dominio = plataforma;
     }
 
     public Cliente() {
@@ -18,22 +16,23 @@ public class Cliente {
         return email;
     }
 
-    public String getDominio() {
-        return dominio;
-    }
 
     public Endereco getEndereco() {
         return endereco;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String checarEmail() {
 
-        if (getDominio().contains("@") && getDominio().contains(".com")) {
+        if (getEmail().contains("@") && getEmail().contains(".com")) {
             System.out.println("Email valido!");
         } else {
             System.out.println("Email invalido!");
         }
-        return getDominio();
+        return getEmail();
     }
 
 

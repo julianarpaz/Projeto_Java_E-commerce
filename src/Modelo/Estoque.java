@@ -30,7 +30,7 @@ public class Estoque {
     public void visualizacaoEstoque(){
         catalogo();
         for (Produto catalogo : catalogo) {
-            System.out.println(catalogo.getNome() + "\t\t\t" + NumberFormat.getCurrencyInstance().format(catalogo.getPreco()));
+            System.out.println(catalogo.getNome() + "\t\t\t"+ catalogo.getCodigo()+"\t\t\t"+ NumberFormat.getCurrencyInstance().format(catalogo.getPreco()));
         }
     }
 }

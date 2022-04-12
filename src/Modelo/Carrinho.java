@@ -13,6 +13,7 @@ public class Carrinho {
     private Pagamento pagamento;
     private double precoTotal = 0;
     private Estoque estoque = new Estoque();
+    private double frete;
 
     public Carrinho(Cliente cliente) {
         this.cliente = cliente;
@@ -74,7 +75,9 @@ public class Carrinho {
         for (Produto produtos : carrinhoCliente) {
             System.out.println(produtos.getNome() + "\t\t\t" + NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
         }
-        System.out.println("Total a pagar: " + NumberFormat.getCurrencyInstance().format(precoTotal));
+        System.out.println("Total dos itens: " + NumberFormat.getCurrencyInstance().format(precoTotal));
+        System.out.println("Valor do frete: " + NumberFormat.getCurrencyInstance().format(frete));
+        System.out.println("Total a pagar: " + NumberFormat.getCurrencyInstance().format(precoTotal+frete));
     }
 
     private int escolhaPagamento(Pagamento pagamento) {
@@ -84,8 +87,30 @@ public class Carrinho {
 
     public void finalizacaoCompra() {
         Scanner ler = new Scanner(System.in);
-        System.out.println("Você deseja prosseguir com a finalizacao da compra? \n 1-Sim\n2-Não");
+        System.out.println("Você deseja prosseguir com a finalizacao da compra? \n1-Sim\n2-Não");
         int continuar = ler.nextInt();
+        System.out.println("Você deseja se tornar cliente premium e obter benefícios?\n1-Sim\n2-Não");
+        int beneficios = ler.nextInt();
+        switch (beneficios) {
+            case 1:
+                this.cliente = new ClientePremium();
+                //this.cliente = (ClientePremium) cliente;
+                System.out.println();
+                System.out.println("Preencha seu email: ");
+                ler.nextLine();
+                String email = ler.nextLine();
+                cliente.setEmail(email);
+                cliente.checarEmail();
+                System.out.println("Preencha seu nome: ");
+                String nome = ler.nextLine();
+                ((ClientePremium) cliente).setNome(nome);
+                System.out.println("Aqui cliente premium ganha frete grátis.");
+                this.frete = 0;
+                break;
+            case 2:
+                this.frete = 20.0;
+                break;
+        }
         switch (continuar) {
             case 1:
                 System.out.println("Escolha o método de pagamento.\n1-Crédito\n2-Débito\n3-Boleto");
@@ -105,7 +130,7 @@ public class Carrinho {
                 }
                 visualizacaoTotal();
                 System.out.println("Compra concluída com sucesso!");
-                //JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
+                JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
                 break;
             case 2:
                 visualizacaoItens();
@@ -114,9 +139,12 @@ public class Carrinho {
                 switch (resposta) {
                     case 1:
                         perguntarAdicionar();
+                        finalizacaoCompra();
                         break;
                     case 2:
                         perguntarRetirar();
+                        finalizacaoCompra();
+                        break;
                     case 3:
                         return;
                     default:
