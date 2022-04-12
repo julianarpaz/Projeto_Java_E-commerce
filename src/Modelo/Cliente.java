@@ -3,13 +3,12 @@ package Modelo;
 public class Cliente {
 
     private String email;
-    private String plataforma;
-    private Endereço endereço;
+    private String dominio;
+    private Endereco endereco;
 
-    public Cliente(String email, String plataforma, Endereço endereço) {
+    public Cliente(String email, String plataforma) {
         this.email = email;
-        this.plataforma = plataforma;
-        this.endereço = endereço;
+        this.dominio = plataforma;
     }
 
     public Cliente() {
@@ -19,16 +18,23 @@ public class Cliente {
         return email;
     }
 
-    public String getPlataforma() {
-        return plataforma;
+    public String getDominio() {
+        return dominio;
     }
 
-    public Endereço getEndereço() {
-        return endereço;
+    public Endereco getEndereco() {
+        return endereco;
     }
 
-    //método de validação do email (pensei em so poder algumas plataformas: gmail, hotmail, yahoo, uol)   Laise e Isabelly
+    public String checarEmail() {
 
-    //REGEX
+        if (getDominio().contains("@") && getDominio().contains(".com")) {
+            System.out.println("Email valido!");
+        } else {
+            System.out.println("Email invalido!");
+        }
+        return getDominio();
+    }
+
 
 }

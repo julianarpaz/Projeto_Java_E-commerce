@@ -1,5 +1,6 @@
 package Modelo;
 
+import javax.swing.*;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,15 @@ public class Carrinho {
         int codigoProduto = ler.nextInt();
         if (codigoProduto == 1) {
             adicionarItem(estoque.getProduto1());
-        } else if(codigoProduto ==2) {
+
+        } else if (codigoProduto == 2) {
             adicionarItem(estoque.getProduto2());
-        } else if (codigoProduto==3){
+
+        } else if (codigoProduto == 3) {
             adicionarItem(estoque.getProduto3());
+
         }
+        visualizacaoItens();
     }
 
     private void removerItem(Produto produto) {
@@ -44,9 +49,9 @@ public class Carrinho {
         int codigoProduto = ler.nextInt();
         if (codigoProduto == 1) {
             removerItem(estoque.getProduto1());
-        } else if(codigoProduto ==2) {
+        } else if (codigoProduto == 2) {
             removerItem(estoque.getProduto2());
-        } else if (codigoProduto==3){
+        } else if (codigoProduto == 3) {
             removerItem(estoque.getProduto3());
         }
     }
@@ -58,7 +63,13 @@ public class Carrinho {
         return precoTotal;
     }
 
-    public void visualizacaoDaCompra() {
+    public void visualizacaoItens() {
+        for (Produto produtos : carrinhoCliente) {
+            System.out.println(produtos.getNome() + "\t\t\t" + NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
+        }
+    }
+
+    public void visualizacaoTotal() {
         precoCompra();
         for (Produto produtos : carrinhoCliente) {
             System.out.println(produtos.getNome() + "\t\t\t" + NumberFormat.getCurrencyInstance().format(produtos.getPreco()));
@@ -71,15 +82,15 @@ public class Carrinho {
         return pagamento.ordinal();
     }
 
-    public void finalizacaoCompra(){
-        Scanner ler = new Scanner (System.in);
+    public void finalizacaoCompra() {
+        Scanner ler = new Scanner(System.in);
         System.out.println("Você deseja prosseguir com a finalizacao da compra? \n 1-Sim\n2-Não");
         int continuar = ler.nextInt();
-        switch(continuar){
+        switch (continuar) {
             case 1:
                 System.out.println("Escolha o método de pagamento.\n1-Crédito\n2-Débito\n3-Boleto");
                 int metodo = ler.nextInt();
-                switch (metodo){
+                switch (metodo) {
                     case 1:
                         escolhaPagamento(Pagamento.credito);
                         break;
@@ -92,15 +103,28 @@ public class Carrinho {
                     default:
                         System.out.println("Método inválido.");
                 }
+                visualizacaoTotal();
                 System.out.println("Compra concluída com sucesso!");
+                //JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
+                break;
             case 2:
-                visualizacaoDaCompra();
-                System.out.println("Você deseja adicionar ou remover itens?");
+                visualizacaoItens();
+                System.out.println("Você deseja adicionar ou remover itens?\n1-Adicionar\n2-Remover\n3-Sair do App");
                 int resposta = ler.nextInt();
+                switch (resposta) {
+                    case 1:
+                        perguntarAdicionar();
+                        break;
+                    case 2:
+                        perguntarRetirar();
+                    case 3:
+                        return;
+                    default:
+                        System.out.println("Opção inválida.");
+                }
 
         }
     }
-    //booleano para checagem se cliente tem direito a benefícios
 
 
 }

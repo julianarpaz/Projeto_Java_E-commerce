@@ -12,6 +12,7 @@ public class Produto {
         this.codigo = codigo;
         this.preco = preco;
     }
+    
 
     public String getNome() {
         return nome;
@@ -24,6 +25,9 @@ public class Produto {
     public double getPreco() {
         return preco;
     }
+    public String toString() {
+		return " "+codigo + "\t" + nome + "\t\t" + preco;
+	}
+    
 
-    //condicional pra checagem se cliente recebe frete grátis  Laise + Isabelly
 }
