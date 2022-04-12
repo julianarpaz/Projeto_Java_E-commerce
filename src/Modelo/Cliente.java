@@ -27,7 +27,7 @@ public class Cliente {
 
     public String checarEmail() {
 
-        if (getEmail().contains("@") && getEmail().contains(".com")) {
+        if (getEmail().contains("@") && getEmail().contains(".com") || getEmail().contains(".COM")) {
             System.out.println("Email valido!");
         } else {
             System.out.println("Email invalido!");

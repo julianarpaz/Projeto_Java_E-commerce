@@ -10,7 +10,7 @@ public class App {
         
         carrinho.abertura();
     	
-    	Estoque estoque = new Estoque(); //criação do objeto estoque
+    	Estoque estoque = new Estoque();
     	estoque.visualizacaoEstoque();
               
         carrinho.perguntarAdicionar();
